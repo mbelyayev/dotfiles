@@ -7,6 +7,12 @@ if command -v uv >/dev/null 2>&1; then
   rm -r "$(uv tool dir)"
 
   rm ~/.local/bin/uv ~/.local/bin/uvx
+
+  if [[ $(uname -s) == "Linux" ]]; then
+    sed -i '/eval "$(uv generate-shell-completion bash)"/d' ~/.bashrc
+  elif [[ $(uname -s) == "Darwin" ]]; then
+    sed -i '/eval "$(uv generate-shell-completion zsh)"/d' ~/.zshrc
+  fi
 fi
 echo 'uv uninstalled.'
 
