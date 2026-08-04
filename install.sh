@@ -6,7 +6,6 @@ if ! command -v brew >/dev/null 2>&1; then
   if [[ $(uname -s) == "Linux" ]]; then
     echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"' >> ~/.bashrc
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
-    echo 'Added brew to PATH for Linux.'
   elif [[ $(uname -s) == "Darwin" ]]; then
     echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
     eval "$(/opt/homebrew/bin/brew shellenv)"
