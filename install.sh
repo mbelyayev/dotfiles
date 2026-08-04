@@ -2,7 +2,7 @@
 
 # Homebrew
 if ! command -v brew >/dev/null 2>&1; then
-  curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | sudo bash
+  curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
   if [[ $(uname -s) == "Linux" ]]; then
     echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"' >> ~/.bashrc
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
