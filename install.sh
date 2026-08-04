@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# Homebrew
 if ! command -v brew >/dev/null 2>&1; then
   curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
   if [[ $(uname -s) == "Linux" ]]; then
@@ -13,3 +14,6 @@ if ! command -v brew >/dev/null 2>&1; then
   brew update
 fi
 echo 'Homebrew installed.'
+
+# Docker
+brew install docker docker-compose
