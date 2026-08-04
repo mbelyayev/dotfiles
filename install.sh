@@ -17,3 +17,14 @@ echo 'Homebrew installed.'
 
 # Docker
 brew install docker docker-compose
+
+# uv toolchain for Python
+if ! command -v uv >/dev/null 2>&1; then
+  curl -LsSf https://astral.sh/uv/install.sh | sh
+  if [[ $(uname -s) == "Linux" ]]; then
+    echo 'eval "$(uv generate-shell-completion bash)"' >> ~/.bashrc
+  elif [[ $(uname -s) == "Darwin" ]]; then
+    echo 'eval "$(uv generate-shell-completion zsh)"' >> ~/.zshrc
+  fi
+fi
+echo 'uv installed.'
