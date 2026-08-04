@@ -17,6 +17,7 @@ echo 'Homebrew installed.'
 
 # Docker
 brew install docker docker-compose
+echo 'Docker installed.'
 
 # uv toolchain for Python
 if ! command -v uv >/dev/null 2>&1; then
