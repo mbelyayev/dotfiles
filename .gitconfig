@@ -1,0 +1,23 @@
+# Global Config
+
+[user]
+  name = Maxim Belyayev
+  useConfigOnly = true # CRITICAL: prevents sytem email exposure if email not identified below
+
+[core]
+	editor = vim
+[http]
+	postBuffer = 524288000
+	maxRequestBuffer = 524288000
+
+# Conditional Config
+
+[includeIf "hasconfig:remote.*.url:git@github.com:*/**"]
+    path = ~/.gitconfig.github
+[includeIf "hasconfig:remote.*.url:https://github.com/**"]
+    path = ~/.gitconfig.github
+
+[includeIf "hasconfig:remote.*.url:ssh://git@codeberg.org/**"]
+    path = ~/.gitconfig.codeberg
+[includeIf "hasconfig:remote.*.url:https://codeberg.org/**"]
+    path = ~/.gitconfig.codeberg
