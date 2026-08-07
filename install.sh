@@ -2,9 +2,11 @@
 
 # Homebrew
 if ! command -v brew >/dev/null 2>&1; then
-  curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh | bash
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   if [[ $(uname -s) == "Linux" ]]; then
-    echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"' >> ~/.bashrc
+cat >> ~/.bashrc << 'EOF'
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
+EOF
     eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv bash)"
   elif [[ $(uname -s) == "Darwin" ]]; then
     echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
@@ -28,3 +30,4 @@ if ! command -v uv >/dev/null 2>&1; then
   fi
 fi
 echo 'uv installed.'
+

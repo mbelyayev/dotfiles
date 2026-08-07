@@ -16,6 +16,9 @@ if command -v uv >/dev/null 2>&1; then
 fi
 echo 'uv uninstalled.'
 
+# Docker
+brew uninstall docker docker-compose
+
 # Homebrew
 if command -v brew >/dev/null 2>&1; then
   curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh | bash
