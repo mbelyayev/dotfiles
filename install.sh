@@ -1,4 +1,19 @@
 #!/bin/bash
+set -eou pipefail
+
+IS_LINUX=false
+if [[ $(uname -s) == "Linux" ]]; then
+  IS_LINUX=true
+  . /etc/os-release
+  MSG_INSTALL_INFO="OS: Linux, Distribution: $PRETTY_NAME"
+elif [[ $(uname -s) == "Darwin" ]]; then
+  MSG_INSTALL_INFO="OS: macOS, Version: $(sw_vers -productVersion)"
+else
+  exit 0
+fi
+echo $MSG_INSTALL_INFO
+printf '%0.s>' $(seq 1 "${#MSG_INSTALL_INFO}")
+printf "\n"
 
 # Homebrew
 if ! command -v brew >/dev/null 2>&1; then
