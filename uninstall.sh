@@ -59,7 +59,7 @@ fi
 
 # Homebrew
 if command -v brew >/dev/null 2>&1; then
-  curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh | bash
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/uninstall.sh)"
   if $IS_LINUX; then
     sed -i '/eval "$(\/home\/linuxbrew\/.linuxbrew\/bin\/brew shellenv bash)"/d' ~/.bashrc
     sudo rm -rf /home/linuxbrew
