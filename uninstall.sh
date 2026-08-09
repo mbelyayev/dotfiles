@@ -22,8 +22,8 @@ printf "\n"
 # uv toolchain for Python
 if command -v uv >/dev/null 2>&1; then
   uv cache clean
-  rm -r "$(uv python dir)"
-  rm -r "$(uv tool dir)"
+  rm -rf "$(uv python dir)"
+  rm -rf "$(uv tool dir)"
   rm ~/.local/bin/uv ~/.local/bin/uvx
   if $IS_LINUX; then
     sed -i '/eval "$(uv generate-shell-completion bash)"/d' ~/.bashrc
