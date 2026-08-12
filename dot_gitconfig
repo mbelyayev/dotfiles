@@ -6,6 +6,10 @@
 
 [core]
 	editor = vim
+ 
+[pull]
+  rebase = true 
+
 [http]
 	postBuffer = 524288000
 	maxRequestBuffer = 524288000
@@ -13,11 +17,11 @@
 # Conditional Config
 
 [includeIf "hasconfig:remote.*.url:git@github.com:*/**"]
-    path = ~/.gitconfig.github
+  path = ~/.gitconfig.github
 [includeIf "hasconfig:remote.*.url:https://github.com/**"]
-    path = ~/.gitconfig.github
+  path = ~/.gitconfig.github
 
 [includeIf "hasconfig:remote.*.url:ssh://git@codeberg.org/**"]
-    path = ~/.gitconfig.codeberg
+  path = ~/.gitconfig.codeberg
 [includeIf "hasconfig:remote.*.url:https://codeberg.org/**"]
-    path = ~/.gitconfig.codeberg
+  path = ~/.gitconfig.codeberg
