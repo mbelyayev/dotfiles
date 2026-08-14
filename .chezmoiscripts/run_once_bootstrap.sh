@@ -38,3 +38,5 @@ case $OS in
     exit 0
     ;;
 esac
+
+ansible-playbook --ask-become-pass $(realpath "$(chezmoi source-path)/ansible/bootstrap.yml")
