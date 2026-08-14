@@ -16,7 +16,7 @@ install_on_darwin() {
 
 install_on_debian_or_ubuntu() {
   sudo apt-get update
-  sudo apt-get install ansible
+  sudo apt-get install -y ansible
 }
   
 
