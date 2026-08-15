@@ -39,4 +39,4 @@ case $OS in
     ;;
 esac
 
-ansible-playbook --ask-become-pass $(realpath "$(chezmoi source-path)/ansible/bootstrap.yml")
+ansible-playbook --ask-become-pass ~/.local/share/chezmoi/ansible/bootstrap.yml
