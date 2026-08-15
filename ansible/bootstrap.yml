@@ -1,11 +1,26 @@
 ---
-
-- hosts: localhost
+- name: Machine bootstrap
+  hosts: localhost
   become: true
   gather_facts: true
 
   tasks:
     - name: Update apt cache
-      apt:
+      ansible.builtin.apt:
         update_cache: yes
       when: ansible_facts['os_family'] == "Debian"
+
+    - name: Install apt packages
+      ansible.builtin.apt:
+        name:
+          - zsh
+          - git
+        state: present
+      when: ansible_facts['os_family'] == "Debian"
+
+    - name: Install brew packages
+      community.general.homebrew:
+        name:
+          - git
+        state: present
+      when: ansible_facts['os_family'] == "Darwin"
