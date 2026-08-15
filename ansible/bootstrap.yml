@@ -19,7 +19,6 @@
         name:
           - zsh
           - git
-          - tmux
         state: present
       when: ansible_facts['os_family'] == "Debian"
 
@@ -28,8 +27,6 @@
       community.general.homebrew:
         name:
           - git
-          - tmux
-          - neovim
         state: present
       when: ansible_facts['os_family'] == "Darwin"
 
