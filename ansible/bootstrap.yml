@@ -24,6 +24,7 @@
       when: ansible_facts['os_family'] == "Debian"
 
     - name: Install brew packages
+      become: false
       community.general.homebrew:
         name:
           - git
