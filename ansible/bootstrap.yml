@@ -5,6 +5,10 @@
   gather_facts: true
 
   tasks:
+    - name: Set variable that is the control node user
+      ansible.builtin.set_fact:
+        user_control_node: "{{ ansible_facts['env']['SUDO_USER'] or ansible_facts['user_id'] }}"
+
     - name: Update apt cache
       ansible.builtin.apt:
         update_cache: yes
@@ -15,6 +19,7 @@
         name:
           - zsh
           - git
+          - tmux
         state: present
       when: ansible_facts['os_family'] == "Debian"
 
@@ -22,5 +27,11 @@
       community.general.homebrew:
         name:
           - git
+          - tmux
         state: present
       when: ansible_facts['os_family'] == "Darwin"
+
+    - name: Ensure shell default is zsh
+      ansible.builtin.user:
+        name: "{{ user_control_node }}"
+        shell: /usr/bin/zsh
