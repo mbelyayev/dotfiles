@@ -34,3 +34,4 @@
       ansible.builtin.user:
         name: "{{ user_control_node }}"
         shell: /usr/bin/zsh
+      when: ansible_facts['os_family'] == "Debian"
