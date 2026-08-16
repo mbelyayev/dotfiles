@@ -1,5 +1,0 @@
-export EDITOR=vim
-
-export PATH="$PATH:$HOME/.local/bin"
-
-# test change doesn't trigger run_onchange_bootstrap.sh.tmpl
