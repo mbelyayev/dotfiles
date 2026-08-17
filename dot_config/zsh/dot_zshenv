@@ -1,0 +1,5 @@
+[[ -v __ZSHENV_SOURCED ]] && return
+__ZSHENV_SOURCED=1
+
+typeset -U PATH path
+source ~/.config/xdg.env
