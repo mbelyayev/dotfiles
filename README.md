@@ -1,6 +1,6 @@
 # dotfiles
 
-This repo contains the configuration to setup all my machines.
+This repo contains chezmoi-managed dotfiles and Ansible playbooks for setting up my configuration across macOS, Debian, and Ubuntu machines.
 
 ## How to install
 
