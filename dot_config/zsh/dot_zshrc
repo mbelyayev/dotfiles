@@ -45,3 +45,7 @@ export GPG_TTY=$(tty)
 # Added by flyctl installer
 export FLYCTL_INSTALL=$HOME/.fly/bin
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
+# mise
+# Keep mise activation after local PATH changes so managed tools win.
+eval "$(~/.local/bin/mise activate zsh)"
