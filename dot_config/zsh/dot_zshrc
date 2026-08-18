@@ -14,6 +14,16 @@ HISTFILE="$XDG_STATE_HOME"/zsh/history
 zstyle ':completion:*' cache-path "$XDG_CACHE_HOME"/zsh/zcompcache
 compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-$ZSH_VERSION
 
+# Use XDG dirs for Vim versions < 9.1.0327 while keeping Neovim config separate
+export VIMINIT="
+  if has('nvim')
+    so ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/init.vim
+  else
+    set nocp
+    so ${XDG_CONFIG_HOME:-$HOME/.config}/vim/vimrc
+  endif
+"
+
 # NVM - Node version manager
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
