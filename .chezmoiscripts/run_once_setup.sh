@@ -3,19 +3,31 @@
 install_homebrew() {
   if ! command -v brew >/dev/null 2>&1; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> ~/.zprofile
     eval "$(/opt/homebrew/bin/brew shellenv)"
   fi
+  brew update
   echo 'Homebrew installed.'
+}
+
+install_mise() {
+  if ! command -v mise >/dev/null 2>&1; then
+    curl https://mise.run | sh
+  fi
+  ~/.local/bin/mise --version
+  mise doctor
+  echo 'Mise installed.'
 }
 
 install_on_darwin() {
   install_homebrew
+  install_mise
   brew install ansible
 }
 
 install_on_debian_or_ubuntu() {
   sudo apt-get update
+  sudo apt-get install -y build-essential ca-certificates curl git
+  install_mise
   sudo apt-get install -y ansible
 }
   
