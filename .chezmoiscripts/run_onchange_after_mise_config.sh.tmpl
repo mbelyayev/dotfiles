@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# dot_config/mise/config.toml hash: {{ include "dot_config/mise/config.toml" | sha256sum }}
+
+if command -v mise >/dev/null 2>&1; then
+  mise bootstrap --dry-run --only packages -v
+  mise bootstrap --only packages
+fi 
