@@ -1,4 +1,4 @@
-{{- $hostType := promptChoiceOnce . "hostType" "What type of host are you on?" (list "Desktop/GUI" "Server/Headless") (dig "hostType" "Desktop/GUI" .) -}}
+{{- $hostType := promptChoiceOnce . "hostType" "What type of host are you on?" (list "desktop" "headless") (dig "hostType" "desktop" .) -}}
 
 data:
   hostType: {{ $hostType | quote }}
