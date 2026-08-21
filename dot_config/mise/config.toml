@@ -1,5 +1,5 @@
 [bootstrap.packages]
-"brew:ffmpeg" = "latest"
-"apt:ffmpeg" = "latest"
-"brew:yt-dlp" = "latest"
-"apt:yt-dlp" = "latest"
+"brew:ffmpeg" = { os = "macos", version = "latest" }
+"apt:ffmpeg" = { os = "linux", version = "latest" }
+"brew:yt-dlp" = { os = "macos", version = "latest" }
+"apt:yt-dlp" = { os = "linux", version = "latest" }
