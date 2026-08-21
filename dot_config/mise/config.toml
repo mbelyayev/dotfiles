@@ -1,3 +1,5 @@
 [bootstrap.packages]
 "brew:ffmpeg" = "latest"
+"apt:ffmpeg" = "latest"
 "brew:yt-dlp" = "latest"
+"apt:yt-dlp" = "latest"
