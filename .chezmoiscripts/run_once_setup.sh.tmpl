@@ -33,12 +33,7 @@ install_on_debian_or_ubuntu() {
   sudo apt-get install -y ansible
 }
 
-{{ if not (index . "hostTypeConfirmed") }}
-echo "${RED}ERROR: ~/.config/chezmoi/chezmoi.yaml has false or missing hostTypeConfirmed.${RESET}"
-echo 'Run `chezmoi init` or `chezmoi update --init` to update the local configuration file.'
-echo "Exiting..."
-exit 0
-{{ end }}
+{{ template "validate-chezmoidata" . }}
 
 OS="$(uname -s)"
 case $OS in
@@ -60,6 +55,6 @@ case $OS in
 esac
 
 # Set the environment(s) for loading mise.<ENV>.toml file(s) and execute bootstrap command
-mise bootstrap --env {{ index . "hostType" }}
+mise bootstrap --env {{ .hostType }}
 
 # ansible-playbook --ask-become-pass ~/.local/share/chezmoi/ansible/bootstrap.yml

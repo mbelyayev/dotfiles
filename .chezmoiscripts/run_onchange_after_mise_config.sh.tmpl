@@ -2,6 +2,8 @@
 
 # dot_config/mise/config.toml hash: {{ include "dot_config/mise/config.toml" | sha256sum }}
 
+{{ template "validate-chezmoidata" . }}
+
 if command -v mise >/dev/null 2>&1; then
-  mise bootstrap --env {{ index . "hostType" }}
+  mise bootstrap --env {{ .hostType }}
 fi 
