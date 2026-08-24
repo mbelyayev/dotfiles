@@ -1,0 +1,18 @@
+#!/bin/bash
+
+RED=$(tput setaf 1)
+RESET=$(tput sgr0)
+
+config_error() {
+    echo >&2 "${RED}ERROR: chezmoi.yaml: $1${RESET}"
+    echo >&2 'Run `chezmoi init` or `chezmoi update --init` to update the local configuration file.'
+    exit 1
+}
+
+{{- if not (index . "hostType") }}
+config_error 'hostType is missing.'
+{{- end }}
+
+{{- if not (index . "hostTypeConfirmed") }}
+config_error 'hostTypeConfirmed is false or missing.'
+{{- end }}
