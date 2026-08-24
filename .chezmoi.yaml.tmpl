@@ -1,4 +1,15 @@
-{{- $hostType := promptChoiceOnce . "hostType" "What type of host are you on?" (list "desktop" "headless") (dig "hostType" "desktop" .) -}}
+{{- $hostTypeChoices := dict "desktop" "macOS/Linux desktop with a GUI" "headless" "server without a GUI" -}}
+{{- $hostType := promptChoiceOnce . "hostType" "What type of host are you on" (keys $hostTypeChoices | sortAlpha) (first (keys $hostTypeChoices)) -}}
+
+{{ $hostTypeConfirmed := promptBoolOnce . "hasGUI" (printf 
+  "You've selected host type: '%s'.\nAn example of this host type is a %s.\nIs this correct [y/N]"
+  $hostType (get $hostTypeChoices $hostType)
+) }}
+
+{{ if not $hostTypeConfirmed }}
+  {{ $hostType = "" }}
+{{ end }}
 
 data:
-  hostType: {{ $hostType | quote }}
+  hostType: {{ if $hostTypeConfirmed }}{{ $hostType | quote }}{{ end }}
+  hostTypeConfirmed: {{ $hostTypeConfirmed }}
