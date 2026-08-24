@@ -59,4 +59,7 @@ case $OS in
     ;;
 esac
 
+# Set the environment(s) for loading mise.<ENV>.toml file(s) and execute bootstrap command
+mise bootstrap --env {{ .hostType }}
+
 # ansible-playbook --ask-become-pass ~/.local/share/chezmoi/ansible/bootstrap.yml

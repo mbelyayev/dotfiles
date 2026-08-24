@@ -1,0 +1,7 @@
+[bootstrap.packages]
+# GUI applications
+## ghostty
+"brew-cask:ghostty" = { os = ["macos"] }
+## obsidian
+"brew-cask:obsidian" = { os = ["macos"] }
+"flatpak-user:obsidian" = { os = ["linux"] }
