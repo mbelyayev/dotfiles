@@ -3,5 +3,5 @@
 # dot_config/mise/config.toml hash: {{ include "dot_config/mise/config.toml" | sha256sum }}
 
 if command -v mise >/dev/null 2>&1; then
-  mise bootstrap --env {{ .hostType }}
+  mise bootstrap --env {{ index . "hostType" }}
 fi 
