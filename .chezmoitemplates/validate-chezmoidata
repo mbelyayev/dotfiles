@@ -1,5 +1,8 @@
 {{- if not (index . "hostType") -}}
-{{ fail "chezmoi.yaml: hostType is missing. Run `chezmoi init` or `chezmoi update --init` to update the local configuration file." }}
+echo "${RED}ERROR: ~/.config/chezmoi/chezmoi.yaml has missing hostType.${RESET}"
+echo 'Run `chezmoi init` or `chezmoi update --init` to update the local configuration file.'
+echo "Exiting..."
+{{ fail "" }}
 {{- end -}}
 
 {{- if not (index . "hostTypeConfirmed") -}}
