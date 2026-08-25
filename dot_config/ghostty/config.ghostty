@@ -1,4 +1,5 @@
 theme = Srcery
+shell-integration = zsh
 shell-integration-features = ssh-env,ssh-terminfo
 
 window-decoration = true
