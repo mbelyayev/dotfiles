@@ -1,10 +1,12 @@
 [bootstrap.packages]
 # CLI tools and libraries
 ## macOS
+"brew:bat" = { os = "macos", version = "latest" }
 "brew:fzf" = { os = "macos", version = "latest" }
 "brew:ffmpeg" = { os = "macos", version = "latest" }
 "brew:yt-dlp" = { os = "macos", version = "latest" }
 ## Linux
+"apt:bat" = { os = "linux", version = "latest" }
 "apt:fzf" = { os = "linux", version = "latest" }
 "apt:ffmpeg" = { os = "linux", version = "latest" }
 "apt:yt-dlp" = { os = "linux", version = "latest" }
