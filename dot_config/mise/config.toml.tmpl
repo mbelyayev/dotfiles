@@ -1,3 +1,5 @@
+{{ $osID := default "" (index .chezmoi.osRelease "id") }}
+
 [settings]
 {{- if eq .chezmoi.os "darwin" }}
 system_packages.managers = ["brew", "brew-cask"]
@@ -5,18 +7,42 @@ system_packages.managers = ["brew", "brew-cask"]
 system_packages.managers = ["apt", "flatpak-user"]
 {{- end }}
 
+[bootstrap.hooks.pre-packages]
+{{ if eq $osID "ubuntu" "debian" }}
+run = [
+  # https://yazi-rs.github.io/docs/installation#apt
+  "curl -fsSL https://yazi-rs.github.io/builds/yazi-keyring.gpg | sudo tee /usr/share/keyrings/yazi-keyring.gpg >/dev/null",
+  "echo 'deb [signed-by=/usr/share/keyrings/yazi-keyring.gpg] https://yazi-rs.github.io/builds/ stable main' | sudo tee /etc/apt/sources.list.d/yazi.list >/dev/null",
+  {{- if eq .hostType "desktop" -}}
+  # https://brave.com/linux/
+  "sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg",
+  "sudo curl -fsSLo /etc/apt/sources.list.d/brave-browser-release.sources https://brave-browser-apt-release.s3.brave.com/brave-browser.sources",
+  {{- end -}}
+  "sudo apt update"
+]
+{{- end }}
+
 [bootstrap.packages]
 # CLI tools and libraries
 ## macOS
-"brew:bat" = "latest"
-"brew:fzf" = "latest"
+"brew:yazi" = "latest"
 "brew:ffmpeg" = "latest"
+"brew:sevenzip" = "latest"
+"brew:jq" = "latest"
+"brew:poppler" = "latest"
+"brew:fd" = "latest"
+"brew:ripgrep" = "latest"
+"brew:fzf" = "latest"
+"brew:zoxide" = "latest"
+"brew:resvg" = "latest"
+"brew:imagemagick" = "latest"
+"brew:bat" = "latest"
 "brew:yt-dlp" = "latest"
 ## Linux
-"apt:bat" = "latest"
-"apt:fzf" = "latest"
+"apt:yazi" = "latest"
 "apt:ffmpeg" = "latest"
-"apt:yt-dlp" = "latest"
+"apt:fzf" = "latest"
+"apt:bat" = "latest"
 
 # GUI applications
 {{- if eq .hostType "desktop" -}}
