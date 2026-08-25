@@ -55,3 +55,11 @@ run = [
 ## Linux
 "flatpak-user:obsidian" = "latest"
 {{- end }}
+
+[bootstrap.hooks.post-packages]
+{{ if eq $osID "ubuntu" "debian" }}
+run = [
+  "ln -s /usr/bin/batcat ~/.local/bin/bat",
+]
+{{- end }}
+
