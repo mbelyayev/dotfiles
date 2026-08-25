@@ -1,0 +1,29 @@
+[settings]
+{{- if eq .chezmoi.os "darwin" }}
+system_packages.managers = ["brew", "brew-cask"]
+{{- else if eq .chezmoi.os "linux" }}
+system_packages.managers = ["apt", "flatpak-user"]
+{{- end }}
+
+[bootstrap.packages]
+# CLI tools and libraries
+## macOS
+"brew:bat" = "latest"
+"brew:fzf" = "latest"
+"brew:ffmpeg" = "latest"
+"brew:yt-dlp" = "latest"
+## Linux
+"apt:bat" = "latest"
+"apt:fzf" = "latest"
+"apt:ffmpeg" = "latest"
+"apt:yt-dlp" = "latest"
+
+# GUI applications
+{{- if eq .hostType "desktop" -}}
+## macOS
+"brew-cask:ghostty" = "latest"
+"brew-cask:firefox" = "latest"
+"brew-cask:obsidian" = "latest"
+## Linux
+"flatpak-user:obsidian" = "latest"
+{{- end }}

@@ -1,10 +1,5 @@
 #!/bin/bash
 
-# dot_config/mise/config.toml hash: {{ include "dot_config/mise/config.toml" | sha256sum }}
-{{- if eq .hostType "desktop" }}
-# dot_config/mise/config.desktop.toml hash: {{ include "dot_config/mise/config.desktop.toml" | sha256sum }}
-{{- end }}
+# dot_config/mise/config.toml.tmpl hash: {{ include "dot_config/mise/config.toml.tmpl" | sha256sum }}
 
-if command -v mise >/dev/null 2>&1; then
-  mise bootstrap --env {{ .hostType }}
-fi
+command -v mise >/dev/null 2>&1 && mise bootstrap
