@@ -1,5 +1,6 @@
 # Setup default editor
-export EDITOR=vim
+export EDITOR=nvim
+alias vim="nvim"
 
 # Initialize zsh completion system (compsys)
 autoload -Uz compinit
@@ -17,7 +18,7 @@ compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-$ZSH_VERSION
 # Use XDG dirs for Vim versions < 9.1.0327 while keeping Neovim config separate
 export VIMINIT="
   if has('nvim')
-    so ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/init.vim
+    so ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/init.lua
   else
     set nocp
     so ${XDG_CONFIG_HOME:-$HOME/.config}/vim/vimrc
