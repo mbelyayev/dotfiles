@@ -27,6 +27,9 @@ export VIMINIT="
 # Homebrew
 export PATH="/opt/homebrew/bin:$PATH"
 
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
+
 # NVM - Node version manager
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"

@@ -6,3 +6,6 @@
 ## Linux
 "apt:ffmpeg" = { os = "linux", version = "latest" }
 "apt:yt-dlp" = { os = "linux", version = "latest" }
+
+[tools]
+fzf = "latest"	
