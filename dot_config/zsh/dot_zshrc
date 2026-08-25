@@ -1,6 +1,5 @@
 # Setup default editor
 export EDITOR=nvim
-alias vim="nvim"
 
 # Initialize zsh completion system (compsys)
 autoload -Uz compinit
@@ -24,6 +23,11 @@ export VIMINIT="
     so ${XDG_CONFIG_HOME:-$HOME/.config}/vim/vimrc
   endif
 "
+
+# Aliases
+alias vim="nvim"
+alias cat="bat"
+alias grep="rg"
 
 # Homebrew
 export PATH="/opt/homebrew/bin:$PATH"
