@@ -59,7 +59,7 @@ run = [
 [bootstrap.hooks.post-packages]
 {{ if eq $osID "ubuntu" "debian" }}
 run = [
-  "ln -s /usr/bin/batcat ~/.local/bin/bat",
+  "ln -sf /usr/bin/batcat ~/.local/bin/bat",
 ]
 {{- else if eq .chezmoi.os "darwin" }}
 run = [
