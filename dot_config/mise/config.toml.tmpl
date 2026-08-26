@@ -61,5 +61,12 @@ run = [
 run = [
   "ln -s /usr/bin/batcat ~/.local/bin/bat",
 ]
+{{- else if eq .chezmoi.os "darwin" }}
+run = [
+  "brew install --cask nikitabobko/tap/aerospace"
+]	
 {{- end }}
+
+[bootstrap.macos.defaults]
+"NSGlobalDomain" = { NSWindowShouldDragOnGesture = true }
 
