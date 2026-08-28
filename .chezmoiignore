@@ -4,3 +4,5 @@ ansible/
 
 install.sh
 uninstall.sh
+
+**/.DS_Store
