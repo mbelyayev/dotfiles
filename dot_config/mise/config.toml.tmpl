@@ -25,6 +25,7 @@ run = [
 [bootstrap.packages]
 # CLI tools and libraries
 ## macOS
+"brew:tmux" = "latest"
 "brew:neovim" = "latest"
 "brew:yazi" = "latest"
 "brew:ffmpeg" = "latest"
@@ -40,6 +41,7 @@ run = [
 "brew:bat" = "latest"
 "brew:yt-dlp" = "latest"
 ## Linux
+"apt:tmux" = "latest"
 "apt:neovim" = "latest"
 "apt:yazi" = "latest"
 "apt:ffmpeg" = "latest"
@@ -53,6 +55,7 @@ run = [
 "brew-cask:firefox" = "latest"
 "brew-cask:obsidian" = "latest"
 "brew-cask:font-symbols-only-nerd-font" = "latest"
+"brew-cask:font-jetbrains-mono" = "latest"
 ## Linux
 "flatpak-user:obsidian" = "latest"
 "apt:fonts-jetbrains-mono" = "latest"
@@ -73,7 +76,7 @@ run = [
 "NSGlobalDomain" = { NSWindowShouldDragOnGesture = true }
 
 [tools]
+# Rust
 rust = "stable"
-
 "cargo:cargo-binstall" = "latest"
 "cargo:tree-sitter-cli" = "0.27.0"
