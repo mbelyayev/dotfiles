@@ -1,8 +1,18 @@
 README.md
+**/README.md
+LICENSE.md
+**/LICENSE.md
+
+**/.git/
+**/.github/
+**/.gitignore
+
+**/.DS_Store
+
+**/nvim/doc/
 
 ansible/
 
 install.sh
 uninstall.sh
 
-**/.DS_Store
