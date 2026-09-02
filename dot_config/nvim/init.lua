@@ -84,6 +84,7 @@ I hope you enjoy your Neovim journey,
 P.S. You can delete this when you're done too. It's your config now! :)
 --]]
 
+local function gh(repo) return 'https://github.com' .. repo end
 -- ============================================================
 -- SECTION 1: OPTIONS
 -- Core Neovim settings, leaders, options
@@ -100,15 +101,14 @@ require 'keymaps'
 -- SECTION 3: PLUGIN MANAGER INTRO
 -- vim.pack intro, build hooks
 -- ============================================================
-local function gh(repo) return 'https://github.com' .. repo end
-
 require 'pack'
 
 -- ============================================================
 -- SECTION 4: UI / CORE UX PLUGINS
 -- guess-indent, gitsigns, which-key, colorscheme, todo-comments, mini modules
 -- ============================================================
---
+require 'plugins'
+
 do
   -- [[ Installing and Configuring Plugins ]]
   --
@@ -129,20 +129,6 @@ do
   -- See `:help gitsigns` to understand what each configuration key does.
   -- Adds git related signs to the gutter, as well as utilities for managing changes
 
-  -- Useful plugin to show you pending keybinds.
-  vim.pack.add { gh 'folke/which-key.nvim' }
-  require('which-key').setup {
-    -- Delay between pressing a key and opening which-key (milliseconds)
-    delay = 0,
-    icons = { mappings = vim.g.have_nerd_font },
-    -- Document existing key chains
-    spec = {
-      { '<leader>s', group = '[S]earch', mode = { 'n', 'v' } },
-      { '<leader>t', group = '[T]oggle' },
-      { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } }, -- Enable gitsigns recommended keymaps first
-      { 'gr', group = 'LSP Actions', mode = { 'n' } },
-    },
-  }
 
   -- [[ Colorscheme ]]
   -- You can easily change to a different colorscheme.
