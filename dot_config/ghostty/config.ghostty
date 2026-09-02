@@ -1,6 +1,14 @@
+theme = IC Orange PPL
+theme = Sea Shells
+theme = Rose Pine
 theme = Srcery
+theme = Everforest Dark Hard
+
 shell-integration = zsh
 shell-integration-features = ssh-env,ssh-terminfo
+
+background-opacity = 0.8
+background-blur = true
 
 window-decoration = true
 window-width = 200
