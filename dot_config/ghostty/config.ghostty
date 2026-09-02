@@ -10,13 +10,14 @@ shell-integration-features = ssh-env,ssh-terminfo
 background-opacity = 0.8
 background-blur = true
 
-window-decoration = true
-window-width = 200
-window-height = 48
-window-padding-x = 2
-window-padding-y = 2
+window-decoration = auto
+window-padding-x = 4
+window-padding-y = 4
 
-macos-titlebar-style = transparent
+fullscreen = non-native-visible-menu
+macos-non-native-fullscreen = visible-menu
+macos-window-buttons = hidden
+macos-titlebar-style = hidden
 
 font-family = JetBrains Mono
 font-size = 16

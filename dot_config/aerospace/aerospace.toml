@@ -218,3 +218,11 @@ gaps.outer.right =      0
     alt-shift-j = ['join-with down', 'mode main']
     alt-shift-k = ['join-with up', 'mode main']
     alt-shift-l = ['join-with right', 'mode main']
+
+# Temp fix for ghostty tabs as multiple Aerospace windows
+# https://github.com/nikitabobko/AeroSpace/issues/68
+# https://github.com/nikitabobko/AeroSpace/issues/778
+#[[on-window-detected]]
+#    if.app-id = "com.mitchellh.ghostty"
+#    check-further-callbacks = true
+#    run = "layout floating"
