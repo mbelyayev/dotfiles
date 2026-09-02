@@ -26,6 +26,10 @@
       "rev": "84a4987ff36798c2fc1169cbaff67960aed9776f",
       "src": "https://github.com/NMAC427/guess-indent.nvim"
     },
+    "kanagawa.nvim": {
+      "rev": "bb85e4bfc8d89b0e62c8fa53ccdd13d12e2f77b3",
+      "src": "https://github.com/rebelot/kanagawa.nvim"
+    },
     "mason-lspconfig.nvim": {
       "rev": "40276c4df7e6bdce6801d6c035c6227f9115a855",
       "src": "https://github.com/mason-org/mason-lspconfig.nvim"
@@ -41,6 +45,10 @@
     "mini.nvim": {
       "rev": "a311ed247d527db9592bb434356badc705363746",
       "src": "https://github.com/nvim-mini/mini.nvim"
+    },
+    "neovim": {
+      "rev": "ff483051a47e27d84bdef47703538df1ed9f4a47",
+      "src": "https://github.com/rose-pine/neovim"
     },
     "nvim-lspconfig": {
       "rev": "16286347bdba1333c7d124d9de9fe6630731b2b2",
