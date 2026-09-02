@@ -1,4 +1,4 @@
-local function gh(repo) return 'https://github.com' .. repo end
+local function gh(repo) return 'https://github.com/' .. repo end
 
 -- Adds git related signs to the gutter, as well as utilities for managing changes
 -- NOTE: gitsigns is already included in init.lua but contains only the base
