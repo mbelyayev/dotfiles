@@ -25,6 +25,7 @@ export VIMINIT="
 "
 
 # Aliases
+alias v="vim"
 alias vim="nvim"
 alias cat="bat"
 alias grep="rg"
