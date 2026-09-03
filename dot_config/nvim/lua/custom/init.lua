@@ -6,3 +6,4 @@ for file_name, type in vim.fs.dir(custom_dir, { follow = true }) do
     require('custom.' .. module)
   end
 end
+
