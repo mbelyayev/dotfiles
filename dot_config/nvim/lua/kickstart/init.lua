@@ -469,7 +469,17 @@ do
     },
   }
 
-  vim.keymap.set({ 'n', 'v' }, '<leader>f', function() require('conform').format { async = true } end, { desc = '[F]ormat buffer' })
+  vim.keymap.set({ 'n', 'v' }, '<leader>f', function()
+    require('conform').format({ async = true }, function(err, did_edit)
+      if err then
+        vim.notify("conform.nvim: " .. tostring(err), vim.log.levels.ERROR )
+        return
+      end
+      if not did_edit then return end
+      require('guess-indent').set_from_buffer(nil, nil, true)
+    end)
+  end, { desc = '[F]ormat buffer' })
+
 end
 
 -- ============================================================
