@@ -1,5 +1,6 @@
 # Setup default editor
 export EDITOR=nvim
+export MANPAGER="nvim +Man!"
 
 # Initialize zsh completion system (compsys)
 autoload -Uz compinit
@@ -23,6 +24,9 @@ export VIMINIT="
     so ${XDG_CONFIG_HOME:-$HOME/.config}/vim/vimrc
   endif
 "
+
+# vi mode
+bindkey -v
 
 # Aliases
 alias v="vim"
