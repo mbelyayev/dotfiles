@@ -3,6 +3,7 @@ theme = Sea Shells
 theme = Rose Pine
 theme = Srcery
 theme = Everforest Dark Hard
+foreground = #FFFFFF
 
 shell-integration = zsh
 shell-integration-features = ssh-env,ssh-terminfo

@@ -26,7 +26,10 @@ export VIMINIT="
 "
 
 # vi mode
+# https://www.reddit.com/r/vim/comments/60jl7h/zsh_vimode_no_delay_entering_normal_mode/
 bindkey -v
+# 10ms for key sequences
+KEYTIMEOUT=1
 
 # Aliases
 alias v="vim"
@@ -39,6 +42,9 @@ export PATH="/opt/homebrew/bin:$PATH"
 
 # Set up fzf key bindings and fuzzy completion
 source <(fzf --zsh)
+
+# Starship
+eval "$(starship init zsh)"
 
 # NVM - Node version manager
 export NVM_DIR="$HOME/.nvm"
