@@ -52,14 +52,6 @@ eval "$(zoxide init zsh)"
 # Starship
 eval "$(starship init zsh)"
 
-# NVM - Node version manager
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
-
-# VS Code CLI
-export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
-
 # PostgreSQL
 export PATH="$PATH:/Library/PostgreSQL/16/bin"
 export PGUSER=postgres
