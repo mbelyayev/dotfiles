@@ -26,8 +26,10 @@ export VIMINIT="
 "
 
 # vi mode
-# https://www.reddit.com/r/vim/comments/60jl7h/zsh_vimode_no_delay_entering_normal_mode/
 bindkey -v
+bindkey '^?' backward-delete-char
+bindkey '^H' backward-delete-char
+# https://www.reddit.com/r/vim/comments/60jl7h/zsh_vimode_no_delay_entering_normal_mode/
 # 10ms for key sequences
 KEYTIMEOUT=1
 
