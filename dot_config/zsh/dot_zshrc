@@ -38,12 +38,16 @@ alias v="vim"
 alias vim="nvim"
 alias cat="bat"
 alias grep="rg"
+alias cl="clear"
 
 # Homebrew
 export PATH="/opt/homebrew/bin:$PATH"
 
-# Set up fzf key bindings and fuzzy completion
+# fzf
 source <(fzf --zsh)
+
+# zoxide
+eval "$(zoxide init zsh)"
 
 # Starship
 eval "$(starship init zsh)"
