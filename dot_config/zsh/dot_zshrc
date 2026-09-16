@@ -17,11 +17,11 @@ compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-$ZSH_VERSION
 
 if [[ $(uname -s) == 'Darwin' ]] then;
   source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-  echo "source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
-  echo "source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+  source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 else
-  echo "source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
-  echo "source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+  source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 
@@ -52,6 +52,7 @@ alias cl="clear"
 alias cd="z"
 
 bindkey '^[^M' self-insert-unmeta
+bindkey '^Y' autosuggest-accept
 bindkey -s '^f' ' sesh connect "$(sesh list -i | fzf --ansi --preview '\''sesh preview {}'\'' --preview-window='\''right:75%'\'')"^M'
 
 # Homebrew
