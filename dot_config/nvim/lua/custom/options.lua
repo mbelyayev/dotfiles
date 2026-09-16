@@ -1,3 +1,8 @@
+-- :help 30.5
+vim.o.tabstop = 4
+vim.o.shiftwidth = 4
+vim.o.expandtab = true
+
 -- Don't wrap text; disorienting
 vim.o.wrap = false
 
@@ -13,3 +18,4 @@ vim.api.nvim_create_autocmd('FileType', {
     vim.opt_local.relativenumber = true
   end
 })
+
