@@ -15,6 +15,16 @@ HISTFILE="$XDG_STATE_HOME"/zsh/history
 zstyle ':completion:*' cache-path "$XDG_CACHE_HOME"/zsh/zcompcache
 compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-$ZSH_VERSION
 
+if [[ $(uname -s) == 'Darwin' ]] then;
+  source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  echo "source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+  echo "source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+else
+  echo "source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+  echo "source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+fi
+
+
 # Use XDG dirs for Vim versions < 9.1.0327 while keeping Neovim config separate
 export VIMINIT="
   if has('nvim')
@@ -41,6 +51,9 @@ alias grep="rg"
 alias cl="clear"
 alias cd="z"
 
+bindkey '^[^M' self-insert-unmeta
+bindkey -s '^f' ' sesh connect "$(sesh list -i | fzf --ansi --preview '\''sesh preview {}'\'' --preview-window='\''right:75%'\'')"^M'
+
 # Homebrew
 export PATH="/opt/homebrew/bin:$PATH"
 
@@ -51,6 +64,10 @@ source <(fzf --zsh)
 eval "$(zoxide init zsh)"
 
 # Starship
+if [[ "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select" || \
+      "${widgets[zle-keymap-select]#user:}" == "starship_zle-keymap-select-wrapped" ]]; then
+    zle -N zle-keymap-select "";
+fi
 eval "$(starship init zsh)"
 
 # PostgreSQL
