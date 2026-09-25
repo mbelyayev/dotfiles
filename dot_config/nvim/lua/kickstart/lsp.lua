@@ -107,18 +107,7 @@ do
     -- clangd = {},
     -- gopls = {},
     -- pyright = {},
-    basedpyright = {
-      settings = {
-        basedpyright = {
-          analysis = {
-            diagnosticMode = "openFilesOnly",
-            inlayHints = {
-              callArgumentNames = true
-            }
-          }
-        }
-      }
-    },
+    pyrefly = {},
     -- rust_analyzer = {},
     --
     -- Some languages (like typescript) have entire language plugins that can be useful:
