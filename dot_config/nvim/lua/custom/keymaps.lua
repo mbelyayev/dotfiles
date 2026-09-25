@@ -1,3 +1,6 @@
+
+vim.keymap.set('n', '<leader>w', vim.cmd.write, { desc = "[W]rite File" })
+
 -- Netrw
 vim.keymap.set('n', '<leader>e.', vim.cmd.Ex)
 
