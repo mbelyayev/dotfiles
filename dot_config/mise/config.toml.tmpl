@@ -7,6 +7,10 @@ system_packages.managers = ["brew", "brew-cask"]
 system_packages.managers = ["apt", "flatpak-user"]
 {{- end }}
 
+idiomatic_version_file_enable_tools = ["python"]
+python.uv_venv_auto = "source"
+
+
 [bootstrap.hooks.pre-packages]
 {{ if eq $osID "ubuntu" "debian" }}
 run = [
@@ -28,7 +32,9 @@ run = [
 "brew:zsh-syntax-highlighting" = "latest"
 "brew:zsh-autosuggestions" = "latest"
 "brew:tmux" = "latest"
+"brew:sesh" = "latest"
 "brew:neovim" = "latest"
+### yazi and dependencies
 "brew:yazi" = "latest"
 "brew:ffmpeg" = "latest"
 "brew:sevenzip" = "latest"
@@ -40,10 +46,10 @@ run = [
 "brew:zoxide" = "latest"
 "brew:resvg" = "latest"
 "brew:imagemagick" = "latest"
+### more tools
 "brew:bat" = "latest"
 "brew:starship" = "latest"
 "brew:yt-dlp" = "latest"
-"brew:sesh" = "latest"
 "brew:podman" = "latest"
 ## Linux
 "apt:zsh-syntax-highlighting" = "latest"
@@ -87,8 +93,14 @@ run = [
 
 [tools]
 # Python
-python = ["3.12", "3.13", "3.14"]
+python = "3.14"
+"aqua:astral-sh/uv" = { 
+  version = "0.12",
+  postinstall = "uv tool install ruff@0.16"
+}
 # Rust
 rust = "stable"
 "cargo:cargo-binstall" = "latest"
 "cargo:tree-sitter-cli" = "latest"
+
+
