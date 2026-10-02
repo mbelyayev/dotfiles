@@ -46,6 +46,7 @@ KEYTIMEOUT=1
 # Aliases
 alias v="vim"
 alias vim="nvim"
+alias y="yazi"
 alias cat="bat"
 alias grep="rg"
 alias cl="clear"
