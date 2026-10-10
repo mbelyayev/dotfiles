@@ -92,15 +92,21 @@ run = [
 "NSGlobalDomain" = { NSWindowShouldDragOnGesture = true }
 
 [tools]
-# Python
+# markdown
+rumdl = "latest"  # linter and formatter
+# lua
+"aqua:lua-language-server" = "latest"
+"aqua:JohnnyMorganz/StyLua" = "latest"
+# python
 python = "3.14"
-"aqua:astral-sh/uv" = { 
-  version = "0.12",
-  postinstall = "uv tool install ruff@0.16"
-}
-# Node
+"aqua:astral-sh/uv" = "0.12"
+"pypi:ruff" = "0.16.0"
+"pypi:pyrefly" = "1.3.2"
+# node
 node = "24.21.0"
-# Rust
+pnpm = "12.10.1"
+"npm:typescript-language-server" = "latest"
+# rust
 rust = "stable"
 "cargo:cargo-binstall" = "latest"
 "cargo:tree-sitter-cli" = "latest"
