@@ -17,6 +17,7 @@ do
   local format_on_save_ft = {
     lua = true,
     python = true,
+    htmldjango = true,
     typescript = true,
   }
 
@@ -35,6 +36,7 @@ do
       markdown = { 'rumdl' },
       -- Conform can run multiple formatters sequentially. Use 'stop_after_first' to run the first available formatter from the list.
       python = { 'ruff_format' },
+      htmldjango = { 'djlint' },
       javascript = { 'oxfmt', 'prettierd', 'prettier', stop_after_first = true },
       typescript = { 'oxfmt', 'prettierd', 'prettier', stop_after_first = true },
       -- rust = { 'rustfmt' },
