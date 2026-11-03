@@ -189,6 +189,10 @@ run = 'move-node-to-workspace 2'
 if.app-id = 'md.obsidian'
 run = 'move-node-to-workspace 3'
 
+[[on-window-detected]]
+if.app-id = 'com.apple.MobileSMS'
+run = 'move-node-to-workspace 8'
+
 # Temp Fix for ghostty tabs as multiple Aerospace windows
 # https://github.com/nikitabobko/AeroSpace/issues/68
 # https://github.com/nikitabobko/AeroSpace/issues/778
